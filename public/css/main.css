@@ -1,0 +1,101 @@
+header {
+    background-color: #0096FF;
+}
+header span{
+    color:white;
+    font-weight: bold;
+}
+#contac{
+    background-color: #5800FF;
+}
+nav{
+    background-color: #5800FF;
+}
+
+#mesie{
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+#menu a{
+    color: rgb(255, 255, 255);
+}
+
+#menu ul{
+    color: #5800FF;
+}
+
+#menu button{
+    background-color: #0096FF;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+#usuarios li a {
+    color: #5800FF;
+}
+main{
+    background-color: white;
+}
+
+.con-animate {
+    position: relative;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.18);
+    height: 50px;
+    overflow: hidden
+}
+
+.con-animate>div {
+    display: flex;
+    width: 100%;
+    background: rgb(255, 255, 255);
+
+}
+
+.con-animate>div p {
+    width: 100%;
+}
+
+.con-animate>.animate1 {
+    position: absolute;
+    left: 0px;
+    animation: animate1 linear 10s infinite;
+    transform: translate(0);
+}
+
+.con-animate>.animate2 {
+    position: absolute;
+    left: 0px;
+    animation: animate2 linear 10s infinite;
+    transform: translate(0);
+}
+
+@keyframes animate1 {
+    from {
+        transform: translate(0%)
+    }
+
+    to {
+        transform: translate(-100%)
+    }
+}
+
+@keyframes animate2 {
+    from {
+        transform: translate(100%)
+    }
+
+    to {
+        transform: translate(0%)
+    }
+}
+
+main .container{
+    background-color: #5800FF;
+}
+main label{
+    color: white;
+}

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\Registrocontroller;
 
     /*
     |--------------------------------------------------------------------------
@@ -16,3 +18,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app');
 });
+
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/registroMedico', function () {
+    return view('registroMedico/index');
+});
+Route::get('/registros', function () {
+    return view('registros/index');
+});
+
+Route::get('/registroPaciente', function () {
+    return view('registroPaciente/index');
+});
+
+Route::get('/consultas', function () {
+    return view('consultas/index');
+});
+
+
+Route::resource('/registroUsuario',UsuariosController::class);
+
+
