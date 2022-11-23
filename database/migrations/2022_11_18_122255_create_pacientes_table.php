@@ -17,16 +17,16 @@ return new class extends Migration
             $table->id();
             $table->date('pacienteFechaAfiliacion');
             $table->enum('pacienteEstado', ['Activo', 'Inactivo'])->default('Activo');
-            $table->bigInteger('usuario_idusuario')->unsigned();
+            $table->bigInteger('id_usuario')->unsigned();
             $table
-                ->foreign('usuario_idusuario')
+                ->foreign('id_usuario')
                 ->references('id')
                 ->on('usuarios');
             $table->bigInteger('id_tipo_afiliacion')->unsigned();
             $table
                 ->foreign('id_tipo_afiliacion')
                 ->references('id')
-                ->on('tipo__afiliacions');
+                ->on('tipo_afiliacions');
             $table->timestamps();
         });
     }

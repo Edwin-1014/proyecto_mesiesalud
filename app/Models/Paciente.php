@@ -4,18 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Usuarios;
-use App\Models\Tipo_Afiliacion;
-
+use App\Models\Usuario;
+use App\Models\Tipo_afiliacion;
 class Paciente extends Model
 {
     use HasFactory;
 
-    public function usuarios (){
+     public function usuarios (){
         return $this->hasMany(Sexo::class);
     }
 
     public function tipo_afiliacion (){
-        return $this->hasMany(Tipo_Afiliacion::class);
+        return $this->hasMany(Tipo_afiliacion::class);
     }
 }

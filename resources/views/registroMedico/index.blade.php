@@ -47,7 +47,7 @@
 						<input class="form-control" type="text" disabled="true" name="nombres" value="{{ $usuario->nombres.' '.$usuario->apellidos }}" placeholder="Selecciona">						  
 					</div>					
 					<div class="col-md-4">						
-						<input type="hidden" name="usuario_idusuario" value="{{ $usuario->idUsuario }}">
+						<input type="hidden" name="id_usuario" value="{{ $usuario->idUsuario }}">
 					</div>
 					@endforeach
 					@endif

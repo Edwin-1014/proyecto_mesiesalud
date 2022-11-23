@@ -2,7 +2,7 @@
 /*--------- Modelos --------*/
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Usuarios;
+use App\Models\Usuario;
 use App\Models\Especialidad;
 use App\Models\EspecialidadMedica;
 use App\Models\Medico;
@@ -20,19 +20,19 @@ class MedicoController extends Controller
         $numeroDocumento = $request->get('documento');
 
         if($request->has("documento")) {
-            $usuarios = Usuarios::orderBy('apellidos', 'ASC')
+            $usuarios = Usuario::orderBy('apellidos', 'ASC')
                 ->NumeroDocumento($numeroDocumento);
             return view('registroMedico.index', compact('usuarios'));
         }
 
         if($request->has("nombres")) {
-            $usuarios = Usuarios::orderBy('apellidos', 'ASC')
+            $usuarios = Usuario::orderBy('apellidos', 'ASC')
                 ->Nombres($nombres);
             return view('registroMedico.index', compact('usuarios'));
 
         }
         if($request->has("apellidos")) {
-            $usuarios = Usuarios::orderBy('apellidos', 'ASC')
+            $usuarios = Usuario::orderBy('apellidos', 'ASC')
                 ->Apellidos($apellidos);
             return view('registroMedico.index', compact('usuarios'));
         }
@@ -52,14 +52,14 @@ class MedicoController extends Controller
             'medicoEstado' => 'required',
             'medicoFechaAfiliacion' => 'required',
             'medicoFechaRetiro' => 'required',
-            'usuario_idusuario' => 'required'
+            'id_usuario' => 'required'
         ]);
 
         $medicos = new Medico();
         $medicos->medicoEstado = $request->medicoEstado;
         $medicos->medicoFechaAfiliacion = $request->medicoFechaAfiliacion;
         $medicos->medicoFechaRetiro = $request->medicoFechaRetiro;
-        $medicos->usuario_idusuario = $request->usuario_idusuario;
+        $medicos->id_usuario = $request->id_usuario;
         $medicos->save();
 
        return redirect()->route('registroMedico.index')->with('success','Medico Registrado Correctamente');
@@ -115,7 +115,7 @@ class MedicoController extends Controller
      */
     public function buscarUsuario(Request $request)
     {
-        $usuario = Usuarios::find($request->search);
+        $usuario = Usuario::find($request->search);
         return view('registroMedico.index',['usuario'=> $usuario]);
     }
 

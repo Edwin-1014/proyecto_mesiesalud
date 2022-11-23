@@ -47,7 +47,7 @@
 						<input class="form-control" type="text" disabled="true" name="nombres" value="{{ $usuario->nombres.' '.$usuario->apellidos }}" placeholder="Selecciona">						  
 					</div>					
 					<div class="col-md-4">						
-						<input type="hidden" name="usuario_idusuario" value="{{ $usuario->idUsuario }}">
+						<input type="hidden" name="id_usuario" value="{{ $usuario->idUsuario }}">
 					</div>
 					@endforeach
 					@endif
@@ -74,12 +74,12 @@
 					<label for="id_tipo_afiliacion" class="form-label">Tipo de Afiliacion</label>
 					<select name="id_tipo_afiliacion" id="inputState" class="form-select">
 						<option selected>Selecciona</option>
-				
-@if(isset($tipoafiliacion))
+						
+						@if(isset($tipoafiliacion))
 						@foreach($tipoafiliacion as $tipo)
 						<option value="{{ $tipo -> id }}">{{ $tipo -> tipo_afiliacion }} </option>
 						@endforeach
-@endif
+						@endif
 					</select>
 				</div>
 			

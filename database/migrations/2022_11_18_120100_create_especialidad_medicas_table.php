@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('especialidad_medicas', function (Blueprint $table) {
-           $table->id();
-            $table->bigInteger('medico_id_medico')->unsigned();
+            $table->id();
+            $table->bigInteger('id_medico')->unsigned();
             $table
-                ->foreign('medico_id_medico')
+                ->foreign('id_medico')
                 ->references('id')
                 ->on('medicos');
-            $table->bigInteger('especialidad_id_especialidad')->unsigned();
+            $table->bigInteger('id_especialidad')->unsigned();
             $table
-                ->foreign('especialidad_id_especialidad')
+                ->foreign('id_especialidad')
                 ->references('id')
                 ->on('especialidads');
             $table->timestamps();

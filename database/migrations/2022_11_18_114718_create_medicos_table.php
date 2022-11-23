@@ -18,9 +18,9 @@ return new class extends Migration
             $table->enum('medicoEstado', ['Activo','Inactivo'])->default('Activo');
             $table->date('medicoFechaAfiliacion');
             $table->date('medicoFechaRetiro');
-            $table->bigInteger('usuario_idusuario')->unsigned();
+            $table->bigInteger('id_usuario')->unsigned();
             $table
-                ->foreign('usuario_idusuario')
+                ->foreign('id_usuario')
                 ->references('id')
                 ->on('usuarios');
             $table->timestamps();

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Usuarios;
+use App\Models\Usuario;
 use App\Models\Paciente;
-use App\Models\Tipo_Afiliacion;
+use App\Models\Tipo_afiliacion;
 
 class PacienteController extends Controller
 {
@@ -23,20 +23,20 @@ class PacienteController extends Controller
         $numeroDocumento = $request->get('documento');
 
         if($request->has("documento")) {
-            $usuarios = Usuarios::orderBy('apellidos', 'ASC')
+            $usuarios = Usuario::orderBy('apellidos', 'ASC')
                 ->NumeroDocumento($numeroDocumento);
-                $tipoafiliacion = Tipo_Afiliacion::all();
+                $tipoafiliacion = Tipo_afiliacion::all();
             return view('registroPaciente.index', compact('usuarios','tipoafiliacion'));
         }
 
         if($request->has("nombres")) {
-            $usuarios = Usuarios::orderBy('apellidos', 'ASC')
+            $usuarios = Usuario::orderBy('apellidos', 'ASC')
                 ->Nombres($nombres);
             return view('registroPaciente.index', compact('usuarios'));
 
         }
         if($request->has("apellidos")) {
-            $usuarios = Usuarios::orderBy('apellidos', 'ASC')
+            $usuarios = Usuario::orderBy('apellidos', 'ASC')
                 ->Apellidos($apellidos);
             return view('registroPaciente.index', compact('usuarios'));
         }
@@ -66,22 +66,21 @@ class PacienteController extends Controller
      */
     /*----------- Registro Paciente ------------*/
     public function store(Request $request) {
-        
         $request->validate([
             'pacienteFechaAfiliacion' => 'required',
             'pacienteEstado' => 'required',
-            'usuario_idusuario' => 'required',
+            'id_usuario' => 'required',
             'id_tipo_afiliacion' => 'required'
         ]);
 
-        $pacientes = new Paciente();
+        $pacientes = new Paciente;
         $pacientes->pacienteFechaAfiliacion = $request->pacienteFechaAfiliacion;
         $pacientes->pacienteEstado = $request->pacienteEstado;
-        $pacientes->usuario_idusuario = $request->usuario_idusuario;
+        $pacientes->id_usuario = $request->id_usuario;
         $pacientes->id_tipo_afiliacion = $request->id_tipo_afiliacion;
         $pacientes->save();
 
-       return redirect()->route('registroPaciente.index')->with('success','Paciente Registrado Correctamente');
+       return redirect()->route('consultaPaciente.index')->with('success','Paciente Registrado Correctamente');
         
 
         /*----------- Fin Registro Paciente ------------*/

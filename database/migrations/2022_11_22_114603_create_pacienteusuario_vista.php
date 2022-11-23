@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipo__afiliacions', function (Blueprint $table) {
+        Schema::create('pacienteusuario_vista', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo_afiliacion');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo__afiliacions');
+        Schema::dropIfExists('pacienteusuario_vista');
     }
 };

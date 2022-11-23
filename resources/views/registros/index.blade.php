@@ -59,6 +59,16 @@
 				</div>
 			</div>
 
+			<div class="col-md-4">
+				<div class="card mx-auto" style="width: 250px; margin-top: 10px;">
+					<img src="img/Farmacos.png" class="card-img-top" alt="Card image"/>
+					<div class="card-body">
+						<h4 class="card-title">Farmacos</h4>
+						<a href="{{ route('registroFarmacos.index') }}" style="margin-bottom:10px;" class="btn btn-primary">Registrar</a>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </form>

@@ -23,18 +23,17 @@ return new class extends Migration
             $table->string('correo');
             $table->string('direccion');
             $table->bigInteger('numero_documento');
-            $table->bigInteger('id_tipodocumento')->unsigned();
+            $table->bigInteger('id_tipo_documento')->unsigned();
             $table
-                ->foreign('id_tipodocumento')
+                ->foreign('id_tipo_documento')
                 ->references('id')
-                ->on('tipo__documentos');
+                ->on('tipo_documentos');
             $table->bigInteger('id_sexo')->unsigned();
             $table
                 ->foreign('id_sexo')
                 ->references('id')
                 ->on('sexos');
             $table->timestamps();
-
         });
     }
 
